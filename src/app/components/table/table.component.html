@@ -1,0 +1,21 @@
+<table>
+    <tr>
+        <th class="number">#</th>
+        <th>Name</th>
+        <th>Points</th>
+    </tr>
+    @for (user of students(); track user.id; let index = $index) {
+        <tr>
+            <td>{{ index + 1 }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.points }}</td>
+        </tr>
+    }
+</table>
+
+
+<div class="list">
+    @for (user of students(); track user.id) {
+        <button class="button" (click)="onAdd(user)">{{ user.name }}</button>
+    }
+</div>
