@@ -5,6 +5,26 @@ table {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   font-size: 20px;
+
+  .name {
+    width: 50%;
+  }
+
+  .month {
+    width: 100px;
+    text-align: center;
+    font-size: 16px;
+  }
+
+  .total {
+    font-size: 22px;
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .blur {
+    filter: blur(0.3rem);
+  }
 }
 th, td {
   padding: 18px 20px;

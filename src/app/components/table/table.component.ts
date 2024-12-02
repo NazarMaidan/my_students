@@ -6,6 +6,8 @@ interface Student {
   id: string;
   points: number;
   name: string;
+  nov: number;
+  dec: number;
 }
 
 @Component({
@@ -19,9 +21,14 @@ export class TableComponent {
   students: InputSignal<Student[] | any> = input([]);
 
   firebaseService = inject(FirebaseService);
+  blurTotal: boolean = true;
 
   public onAdd(student: any): any {
-    this.firebaseService.addPoint(student.id, { ...student, points: student.points + 1 } );
+    this.firebaseService.addPoint(student.id, { ...student, nov: 0, dec: 0 } );
+  }
+
+  public onBlur(): any {
+    this.blurTotal = !this.blurTotal;
   }
 
 }
