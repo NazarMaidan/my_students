@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
 import { TableComponent } from './components/table/table.component';
 
 
@@ -12,6 +12,11 @@ import { TableComponent } from './components/table/table.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
+  router = inject(Router);
 
+
+  navTo(url: string) {
+    this.router.navigate([url])
+  }
 
 }

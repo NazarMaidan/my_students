@@ -24,7 +24,7 @@ export class TableComponent {
   blurTotal: boolean = true;
 
   public onAdd(student: any): any {
-    this.firebaseService.addPoint(student.id, { ...student, nov: 0, dec: 0 } );
+    this.firebaseService.addPoint(student.id, { ...student, dec: +student.dec + 1 } );
   }
 
   public onBlur(): any {
