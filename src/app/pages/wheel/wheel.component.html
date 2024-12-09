@@ -19,3 +19,13 @@
 </div>
 
 
+<div class="list-name">
+    @for (item of selectedClass; track $index) {
+        <label>
+            <input type="checkbox" (change)="onNameChanged($event.target, item.name)" checked="true">
+            <span>{{item.name}}</span>
+        </label>
+    }
+</div>
+
+

@@ -41,10 +41,12 @@ const LIST: any = {
 export class WheelComponent {
 
   selectedList: any = [];
+  selectedClass: any = [];
 
   onCheckboxChanged({ checked }:any, classRoom:number):void {
-    this.selectedList = checked ? LIST[classRoom] : []
-    this.drawPieChart(this.selectedList);
+    this.selectedList = checked ? LIST[classRoom] : [];
+    this.selectedClass = checked ? LIST[classRoom] : [];
+    this.drawPieChart(this.shuffleArray(this.selectedList));
   }
 
   getRandomColor() {
@@ -132,5 +134,25 @@ export class WheelComponent {
 
     // Trigger the rotation on click
     canvas.addEventListener('click', rotateWheel);
+  }
+
+ 
+  onNameChanged({ checked }:any, name:string):void {
+    this.selectedList = !checked ? this.selectedList.filter((el:any)=> el.name !== name) : [...this.selectedList, {name}];
+    this.drawPieChart(this.shuffleArray(this.selectedList));
+  }
+
+  shuffleArray(array: any[]): any[] {
+    const shuffled = array.slice();
+  
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const randomIndex = Math.floor(Math.random() * (i + 1));
+
+      const temp = shuffled[i];
+      shuffled[i] = shuffled[randomIndex];
+      shuffled[randomIndex] = temp;
+    }
+  
+    return shuffled;
   }
 }
