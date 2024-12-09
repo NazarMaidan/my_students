@@ -7,7 +7,7 @@ import { TableComponent } from './components/table/table.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports:[CommonModule, RouterOutlet, TableComponent],
+  imports:[CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
