@@ -12,11 +12,10 @@ interface Student {
 }
 
 @Component({
-  selector: 'app-table',
-  standalone: true,
-  imports:[CommonModule],
-  templateUrl: './table.component.html',
-  styleUrl: './table.component.scss'
+    selector: 'app-table',
+    imports: [CommonModule],
+    templateUrl: './table.component.html',
+    styleUrl: './table.component.scss'
 })
 export class TableComponent {
   students: InputSignal<Student[] | any> = input([]);

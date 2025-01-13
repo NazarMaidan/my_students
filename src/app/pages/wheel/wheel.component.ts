@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { LIST } from '../../constants/students.list';
 
 @Component({
-  selector: 'app-wheel',
-  standalone: true,
-  imports: [],
-  templateUrl: './wheel.component.html',
-  styleUrl: './wheel.component.scss'
+    selector: 'app-wheel',
+    imports: [],
+    templateUrl: './wheel.component.html',
+    styleUrl: './wheel.component.scss'
 })
 export class WheelComponent {
 

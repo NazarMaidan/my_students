@@ -3,11 +3,10 @@ import { map, shareReplay, Subject, switchMap } from 'rxjs';
 import { FirebaseService } from '../../services/firebase.service';
 const MONTH = 'nov';
 @Component({
-  selector: 'app-second',
-  standalone: true,
-  imports: [],
-  templateUrl: './second.component.html',
-  styleUrl: './second.component.scss'
+    selector: 'app-second',
+    imports: [],
+    templateUrl: './second.component.html',
+    styleUrl: './second.component.scss'
 })
 export class SecondComponent implements OnInit {
 
