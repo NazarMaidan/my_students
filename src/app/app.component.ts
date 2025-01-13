@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
-import { TableComponent } from './components/table/table.component';
 
 
 @Component({
@@ -13,10 +12,15 @@ import { TableComponent } from './components/table/table.component';
 })
 export class AppComponent {
   router = inject(Router);
+  activeMenu: boolean = false;
 
 
   navTo(url: string) {
     this.router.navigate([url])
+  }
+
+  onShowNav(): void {
+    this.activeMenu = !this.activeMenu;
   }
 
 }

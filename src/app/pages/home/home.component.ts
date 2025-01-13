@@ -14,7 +14,8 @@ interface Student {
 
 @Component({
   selector: 'app-home',
-  standalone: true, imports:[AsyncPipe, TableComponent],
+  standalone: true,
+  imports:[AsyncPipe, TableComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
