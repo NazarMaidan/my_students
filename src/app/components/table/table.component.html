@@ -4,6 +4,7 @@
         <th class="name">Name</th>
         <th class="month">November</th>
         <th class="month">December</th>
+        <th class="month">Jan/Feb</th>
         <th class="total" (click)="onBlur()">Total</th>
     </tr>
     @for (user of students(); track user.id; let index = $index) {
@@ -12,7 +13,8 @@
             <td class="name">{{ user.name }}</td>
             <td class="month">{{ user['nov'] }}</td>
             <td class="month">{{ user['dec'] }}</td>
-            <td class="total" [class.blur]="blurTotal">{{ user['nov'] + user['dec'] }}</td>
+            <td class="month">{{ user['janfeb'] }}</td>
+            <td class="total" [class.blur]="blurTotal">{{ user['nov'] + user['dec'] + user['janfeb']  }}</td>
         </tr>
     }
 </table>

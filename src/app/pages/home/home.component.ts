@@ -27,7 +27,7 @@ export class HomeComponent {
   students: Observable<Student[]> = this.triggerUpdate$.pipe(
     switchMap(() => this.firebaseService.getStudents().pipe(shareReplay(1))),
     map((students: any) => students.filter((el: any) => this.selectedClasses.has(el.class))),
-    map((students: any) => students.sort((a: any, b: any) => b.dec - a.dec)),
+    map((students: any) => students.sort((a: any, b: any) => b.janfeb - a.janfeb)),
   )
 
   onCheckboxChanged({ checked }: any, classRoom: number): void {
