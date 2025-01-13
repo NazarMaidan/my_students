@@ -4,10 +4,11 @@ import { Router, RouterOutlet } from '@angular/router';
 
 
 @Component({
-    selector: 'app-root',
-    imports: [CommonModule, RouterOutlet],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector:'app-root',
+  imports:[CommonModule, RouterOutlet],
+  templateUrl:'./app.component.html',
+  standalone:true,
+  styleUrl:'./app.component.scss'
 })
 export class AppComponent {
   router = inject(Router);

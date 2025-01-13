@@ -1,5 +1,5 @@
 <div class="category_list">
     @for (item of categoryList; track item.id){
-        <div class="category_item">{{item.name}}</div>
+        <div class="category_item" (click)="show(item)">{{item.name}}</div>
     }
 </div>

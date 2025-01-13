@@ -13,10 +13,11 @@ interface Student {
 }
 
 @Component({
-    selector: 'app-home',
-    imports: [AsyncPipe, TableComponent],
-    templateUrl: './home.component.html',
-    styleUrl: './home.component.scss'
+  selector:'app-home',
+  imports:[AsyncPipe, TableComponent],
+  templateUrl:'./home.component.html',
+  standalone:true,
+  styleUrl:'./home.component.scss'
 })
 export class HomeComponent {
   firebaseService = inject(FirebaseService);

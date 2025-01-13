@@ -1,0 +1,25 @@
+
+.question {
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  background: #e0e0e0;
+  padding: 10px 40px 40px;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+  }
+
+  .question {
+    text-align: center;
+    font-size: 42px;
+    letter-spacing: 4px;
+    margin-top: 40px;
+    text-transform: capitalize;
+  }
+}
