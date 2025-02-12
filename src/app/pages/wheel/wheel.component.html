@@ -13,19 +13,29 @@
     </label>
 </div>
 
-<div class="chart">
-    <canvas id="pieChartCanvas" width="500" height="500"></canvas>
-    <div class="arrow"></div>
-</div>
+<!--<div class="chart">-->
+<!--    <canvas id="pieChartCanvas" width="500" height="500"></canvas>-->
+<!--    <div class="arrow"></div>-->
+<!--</div>-->
 
+<button class="btn btn-random" (click)="onSelectStudent()">Random</button>
+<button class="btn btn-clear" (click)="onClearList()">Clear</button>
 
-<div class="list-name">
+<div class="wood-desk four-class"
+     [class.fourth-class]="classRoom === 4"
+     [class.third-class]="classRoom === 3"
+     [class.second-class]="classRoom === 2"
+>
     @for (item of selectedClass; track $index) {
-        <label>
-            <input type="checkbox" (change)="onNameChanged($event.target, item.name)" checked="true">
-            <span>{{item.name}}</span>
-        </label>
+        <div class="wood-desk--item item--{{item.name}}"
+             [class.selected]="selectedItems.has(item.name)"
+             [class.active]="activeItem?.name === item.name"
+             (click)="onToggleStudent(item.name)"
+        >
+            <img src="/assets/images/table-desk.png" alt="desk"/>
+            <div class="name">{{item.name}}</div>
+        </div>
     }
-</div>
 
+</div>
 

@@ -28,6 +28,17 @@
     }
   }
 
+  .btn-random {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+  }
+  .btn-clear {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+  }
+
 }
 
 .actions {
@@ -67,3 +78,105 @@
     margin-right: 5px;
   }
 }
+
+.wood-desk {
+  &--item {
+    padding: 30px;
+    font-size: 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    img {
+      width: 100px;
+      height: 100px;
+    }
+  }
+
+  .active {
+    border: 2px solid green;
+    padding: 28px;
+  }
+
+  .selected {
+    opacity: 0.25;
+  }
+}
+
+.fourth-class {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+
+  grid-template-areas:
+    "Angelina Angelina Angelina Nadia Nadia Nadia Daria Daria Daria Demian Demian Demian"
+    "Artem Artem Artem Artem Iryna Iryna Iryna Iryna Inesa Inesa Inesa Inesa"
+    "Pavlo Pavlo Pavlo Pavlo Yurii Yurii Yurii Yurii Maksym Maksym Maksym Maksym";
+}
+
+.third-class {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+
+  grid-template-areas:
+    "Matvii Matvii Matvii Matvii Stas Stas Stas Stas Vlad Vlad Vlad Vlad"
+    "Tymofii Tymofii Tymofii Diana Diana Diana Mykola Mykola Mykola Alina Alina Alina"
+}
+
+.item--Diana {
+  grid-area: Diana ;
+}
+.item--Tymofii {
+  grid-area: Tymofii ;
+}
+.item--Matvii {
+  grid-area: Matvii ;
+}
+.item--Vlad {
+  grid-area: Vlad ;
+}
+.item--Alina {
+  grid-area: Alina ;
+}
+.item--Stas {
+  grid-area: Stas ;
+}
+.item--Mykola {
+  grid-area: Mykola ;
+}
+
+.item--Angelina {
+  grid-area: Angelina ;
+}
+.item--Iryna {
+  grid-area: Iryna ;
+}
+.item--Nadia {
+  grid-area: Nadia ;
+}
+.item--Artem {
+  grid-area: Artem ;
+}
+.item--Maksym {
+  grid-area: Maksym ;
+}
+.item--Demian {
+  grid-area: Demian ;
+}
+.item--Yurii {
+  grid-area: Yurii ;
+}
+.item--Pavlo {
+  grid-area: Pavlo ;
+}
+.item--Daria {
+  grid-area: Daria ;
+}
+.item--Inesa {
+  grid-area: Inesa ;
+}
+
