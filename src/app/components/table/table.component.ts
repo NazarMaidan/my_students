@@ -1,15 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, input, InputSignal } from '@angular/core';
-import { FirebaseService } from '../../services/firebase.service';
-
-interface Student {
-  id: string;
-  points: number;
-  name: string;
-  nov: number;
-  dec: number;
-  janfeb: number;
-}
+import { Component, input, InputSignal, signal, WritableSignal } from '@angular/core';
+import { Student } from '../../types/student.type';
 
 @Component({
   selector:'app-table',
@@ -20,16 +11,9 @@ interface Student {
 })
 export class TableComponent {
   students: InputSignal<Student[] | any> = input([]);
-
-  firebaseService = inject(FirebaseService);
-  blurTotal: boolean = true;
-
-  public onAdd(student: any): any {
-    this.firebaseService.addPoint(student.id, { ...student, janfeb: +student.janfeb + 1 } );
-  }
+  blurTotal: WritableSignal<boolean> = signal(true);
 
   public onBlur(): any {
-    this.blurTotal = !this.blurTotal;
+    this.blurTotal.set(!this.blurTotal());
   }
-
 }

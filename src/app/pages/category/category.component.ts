@@ -1,7 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal, WritableSignal } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { CategoryQuestionComponent } from '../../components/category-question/category-question.component';
-import { CATEGORIES, QUESTIONS } from '../../constants/categories.list';
+import { CATEGORIES, CATEGORY_BY_CLASS, QUESTIONS } from '../../constants/categories.list';
+import { StudentsStore } from '../../store/students.store';
 
 @Component({
   selector:'app-category',
@@ -9,22 +10,24 @@ import { CATEGORIES, QUESTIONS } from '../../constants/categories.list';
   templateUrl:'./category.component.html',
   standalone:true,
   styleUrl:'./category.component.scss',
-
 })
 export class CategoryComponent {
-  categoryList: any[] = CATEGORIES;
-  questionList: any = QUESTIONS;
   readonly dialog = inject(MatDialog);
+  readonly studentsStore = inject(StudentsStore);
+
+  selectedClass: WritableSignal<number> = signal(this.studentsStore.selectedClass());
+  availableCategories: Set<number> = new Set([...CATEGORY_BY_CLASS[this.selectedClass()]]);
+  categoryListOnePoint: WritableSignal<any> = signal(CATEGORIES.filter((cat: any) => cat.points === 1 && this.availableCategories.has(cat.id)));
+  categoryListTwoPoint: WritableSignal<any> = signal(CATEGORIES.filter((cat: any) => cat.points === 2 && this.availableCategories.has(cat.id)));
+  questionList: WritableSignal<any> = signal(QUESTIONS);
 
   show(category: any): void {
-    const dialogRef = this.dialog.open(CategoryQuestionComponent, {
-      data: {category, question: getRandomElement(this.questionList[category.id])},
+    this.dialog.open(CategoryQuestionComponent, {
+      data: {
+        category,
+        question: getRandomElement(this.questionList()[category.id])},
       position: {top: '50px'},
-      maxWidth: 800
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-
+      maxWidth: 1200
     });
   }
 }

@@ -1,0 +1,7 @@
+<app-table [students]="studentsStore.classStudents()"></app-table>
+
+<div class="list">
+    @for (user of studentsStore.classStudents(); track user.id) {
+        <button class="button" (click)="onAdd(user)">{{ user.name }}</button>
+    }
+</div>

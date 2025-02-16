@@ -1,0 +1,21 @@
+<button class="btn btn-random" (click)="onSelectStudent()">Random</button>
+<button class="btn btn-clear" (click)="onClearList()">Clear</button>
+
+<div class="wood-desk second-class"
+     [class.fourth-class]="selectedClass() === 4"
+     [class.third-class]="selectedClass() === 3"
+     [class.second-class]="selectedClass() === 2"
+>
+    @for (item of selectedList(); track $index) {
+        <div class="wood-desk--item item--{{item.name}}"
+             [class.selected]="selectedItems.has(item.name)"
+             [class.active]="activeItem?.name === item.name"
+             (click)="onToggleStudent(item.name)"
+        >
+            <img src="/assets/images/table-desk.png" alt="desk"/>
+            <div class="name">{{item.name}}</div>
+        </div>
+    }
+
+</div>
+

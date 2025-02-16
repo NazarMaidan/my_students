@@ -97,8 +97,8 @@
   }
 
   .active {
-    border: 2px solid green;
-    padding: 28px;
+    border: 3px solid green;
+    padding: 27px;
   }
 
   .selected {
@@ -125,6 +125,32 @@
   grid-template-areas:
     "Matvii Matvii Matvii Matvii Stas Stas Stas Stas Vlad Vlad Vlad Vlad"
     "Tymofii Tymofii Tymofii Diana Diana Diana Mykola Mykola Mykola Alina Alina Alina"
+}
+
+.second-class {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: auto;
+
+  grid-template-areas:
+    "Sofia Sofia Sofia Sviatoslav Sviatoslav Sviatoslav"
+    "Diana Diana Maksym Maksym Angelina Angelina"
+}
+
+.item--Angelina {
+  grid-area: Angelina ;
+}
+.item--Sviatoslav {
+  grid-area: Sviatoslav ;
+}
+.item--Diana {
+  grid-area: Diana ;
+}
+.item--Maksym {
+  grid-area: Maksym ;
+}
+.item--Sofia {
+  grid-area: Sofia ;
 }
 
 .item--Diana {

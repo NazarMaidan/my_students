@@ -1,5 +1,16 @@
 <div class="category_list">
-    @for (item of categoryList; track item.id){
-        <div class="category_item" (click)="show(item)">{{item.name}}</div>
-    }
+    <div class="category_cover light-bg">
+        @for (item of categoryListOnePoint(); track item.id){
+            <div class="category_item "
+                 (click)="show(item)">{{item.name}}</div>
+        }
+    </div>
+
+    <div class="category_cover hard-bg">
+        @for (item of categoryListTwoPoint(); track item.id){
+            <div class="category_item"
+                 (click)="show(item)">{{item.name}}</div>
+        }
+    </div>
+
 </div>

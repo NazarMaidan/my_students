@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { WheelComponent } from './wheel.component';
+import { RandomComponent } from './random.component';
 
 describe('WheelComponent', () => {
-  let component: WheelComponent;
-  let fixture: ComponentFixture<WheelComponent>;
+  let component: RandomComponent;
+  let fixture: ComponentFixture<RandomComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [WheelComponent]
+      imports: [RandomComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(WheelComponent);
+    fixture = TestBed.createComponent(RandomComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -10,6 +10,17 @@ table {
     width: 50%;
   }
 
+  .name-body {
+    display: flex;
+    align-items: center;
+
+    .icon {
+      margin-left: 20px;
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   .month {
     width: 100px;
     text-align: center;
@@ -49,35 +60,12 @@ td {
   width: 30px;
 }
 
-.list {
-  width: 100%;
-  display: grid;
-  justify-content: space-around;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  gap: 20px 50px;
-  margin-top: 50px;
-  flex-wrap: wrap;
+.icon--0 {
+  fill: #FFD700;
 }
-
-.button {
-  padding: 15px 50px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-  background-color: #1E90FF; /* Dodger Blue */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.icon--1 {
+  fill: #C0C0C0;
 }
-
-.button:hover {
-  background-color: #1C86EE; /* Slightly darker blue */
-  transform: scale(1.05);
-}
-
-.button:active {
-  background-color: #187bcd; /* Even darker blue for active state */
-  transform: scale(0.98);
+.icon--2 {
+  fill: #cd7f32;
 }

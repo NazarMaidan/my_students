@@ -1,9 +1,9 @@
 
 .question {
-  width: 700px;
+  width: 1200px;
   display: flex;
   justify-content: center;
-  background: #e0e0e0;
+  background: #ffffff;
   padding: 10px 40px 40px;
   align-items: center;
   flex-direction: column;
@@ -19,7 +19,6 @@
     text-align: center;
     font-size: 42px;
     letter-spacing: 4px;
-    margin-top: 40px;
-    text-transform: capitalize;
+    margin-top: 100px;
   }
 }
