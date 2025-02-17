@@ -12,5 +12,8 @@ export const routes: Routes = [
   },
   {
     path: 'config', loadComponent: () => import('./pages/config/config.component').then(m => m.ConfigComponent)
+  },
+  {
+    path: 'achievement', loadComponent: () => import('./pages/achievement/achievement.component').then(m => m.AchievementComponent)
   }
 ];

@@ -1,10 +1,7 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { LIST } from '../../constants/students.list';
 import { StudentsStore } from '../../store/students.store';
 
-const classes = {
-  2:'second-class', 3:'third-class', 4:'fourth-class'
-};
 
 @Component({
   selector:'app-wheel',

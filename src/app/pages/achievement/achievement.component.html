@@ -1,0 +1,12 @@
+<div class="list">
+    @for (student of selectedList(); track student.id) {
+        <div class="student">
+            <div class="student_name">{{student.name}}</div>
+            <div class="student_progress_list">
+                @for (achieve of selectedList()?.achievements; track achieve.name) {
+                    <div class="progress_item"></div>
+                }
+            </div>
+        </div>
+    }
+</div>
