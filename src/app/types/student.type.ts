@@ -5,4 +5,5 @@ export interface Student {
   nov: number;
   dec: number;
   janfeb: number;
+  marapr: number;
 }

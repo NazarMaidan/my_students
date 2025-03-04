@@ -27,7 +27,7 @@ export const StudentsStore = signalStore(
       patchState(store, {students})
     },
     addOnePoint(student: any): void {
-      firebaseService.addPoint(student.id, { ...student, janfeb: +student.janfeb + 1 } )
+      firebaseService.addPoint(student.id, { ...student, marapr: +student.marapr + 1 } )
     },
     setActiveClass(selectedClass: number): void {
       patchState(store, (state: any) => ({filterParams: {...state.filterParams, selectedClass}}))
@@ -36,7 +36,7 @@ export const StudentsStore = signalStore(
   withHooks((store: any, firebaseService = inject(FirebaseService)) => ({
     onInit() {
       firebaseService.getStudents().pipe(
-        map((students: any) => students.sort((a: any, b: any) => b.janfeb - a.janfeb)),
+        map((students: any) => students.sort((a: any, b: any) => b.marapr - a.marapr)),
       ).subscribe((students) => store.keepStudents(students));
     }
   }))
