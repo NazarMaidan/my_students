@@ -1,7 +1,7 @@
 table {
   border-collapse: collapse;
   width: 60%;
-  margin: 10px auto;
+  margin: 0 auto 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   background-color: #ffffff;
   font-size: 20px;
@@ -24,7 +24,7 @@ table {
   .month {
     width: 100px;
     text-align: center;
-    font-size: 16px;
+
   }
 
   .total {
@@ -38,7 +38,7 @@ table {
   }
 }
 th, td {
-  padding: 18px 20px;
+  padding: 14px 20px;
   text-align: left;
 }
 th {
@@ -51,6 +51,8 @@ tr:nth-child(even) {
 }
 tr:hover {
   background-color: #e0e0e0;
+  font-size: 24px;
+  font-weight: 700;
 }
 td {
   color: #333;

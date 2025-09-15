@@ -1,0 +1,16 @@
+<div class="wrap">
+    <div class="smile">
+        <img src="/assets/images/smile.jpg" alt="smile">
+
+        @for (item of selectedList(); track $index) {
+            <div class="item"
+            [class.hide]="have.includes(item)"
+            (click)="add(item)">{{item}}</div> 
+            
+        }
+    </div>
+    <div class="actions">
+        <button class="btn" (click)="onEasy()">Easy</button>
+        <button class="btn" (click)="onHard()">Hard</button>
+    </div>
+</div>

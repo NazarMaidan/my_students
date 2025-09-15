@@ -15,5 +15,11 @@ export const routes: Routes = [
   },
   {
     path: 'achievement', loadComponent: () => import('./pages/achievement/achievement.component').then(m => m.AchievementComponent)
+  },
+  {
+    path: 'teeth', loadComponent: () => import('./pages/teeth/teeth.component').then(m => m.TeethComponent)
+  },
+  {
+    path: 'first', loadComponent: () => import('./pages/first-class/first-class.component').then(m => m.FirstClassComponent)
   }
 ];

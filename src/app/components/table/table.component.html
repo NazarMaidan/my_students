@@ -2,10 +2,7 @@
     <tr>
         <th class="number">#</th>
         <th class="name">Name</th>
-        <th class="month">November</th>
-        <th class="month">December</th>
-        <th class="month">Jan/Feb</th>
-        <th class="month">Mar/Apr</th>
+        <th class="month">Sep/Oct</th>
         <th class="total" (click)="onBlur()">Total</th>
     </tr>
     @for (user of students(); track user.id; let index = $index) {
@@ -20,11 +17,9 @@
                     </div>
                 }
             </td>
-            <td class="month">{{ user['nov'] }}</td>
-            <td class="month">{{ user['dec'] }}</td>
-            <td class="month">{{ user['janfeb'] }}</td>
-            <td class="month">{{ user['marapr'] }}</td>
-            <td class="total" [class.blur]="blurTotal()">{{ user['nov'] + user['dec'] + user['janfeb']  + user['marapr']  }}</td>
+            <td class="month">{{ user['sepoct'] }}</td>
+        
+            <td class="total" [class.blur]="blurTotal()">{{ user['sepoct'] }}</td>
         </tr>
     }
 </table>

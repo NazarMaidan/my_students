@@ -1,5 +1,5 @@
 export const LIST: any = {
-  4: [
+  5: [
     {name: 'Angelina'},
     {name: 'Iryna'},
     {name: 'Nadia'},
@@ -11,7 +11,7 @@ export const LIST: any = {
     {name: 'Daria'},
     {name: 'Inesa'},
   ],
-  3: [
+  4: [
     {name: 'Diana'},
     {name: 'Tymofii'},
     {name: 'Matvii'},
@@ -20,7 +20,7 @@ export const LIST: any = {
     {name: 'Stas'},
     {name: 'Mykola'},
   ],
-  2: [
+  3: [
     {name: 'Sviatoslav'},
     {name: 'Diana'},
     {name: 'Sofia'},

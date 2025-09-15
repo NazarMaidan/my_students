@@ -1,0 +1,20 @@
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Points</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for (student of students; track $index) {
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.points }}</td>
+                <td><button (click)="addPoint(student)">+1 Point</button></td>
+              </tr>
+        }
+     
+    </tbody>
+  </table>
+  
