@@ -26,5 +26,16 @@ export const LIST: any = {
     {name: 'Sofia'},
     {name: 'Maksym'},
     {name: 'Angelina'},
+  ],
+  2: [
+    {name: 'Sviatoslav'},
+    {name: 'Angelina'},
+    {name: 'Sofia'},
+    {name: 'Maksym'},
+    {name: 'Evelina'},
+    {name: 'Hrystyna'},
+    {name: 'Artem'},
+    {name: 'Yana'},
+    {name: 'Vadym'},
   ]
 }

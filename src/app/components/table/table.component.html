@@ -1,6 +1,6 @@
 <table>
     <tr>
-        <th class="number">#</th>
+        <th class="number" (click)="showPass()">#</th>
         <th class="name">Name</th>
         <th class="month">Sep/Oct</th>
         <th class="total" (click)="onBlur()">Total</th>
@@ -23,5 +23,9 @@
         </tr>
     }
 </table>
+
+@if(enterPass) {
+    <input type="password" [(ngModel)]="password" (keyup)="checkPassword($event)">
+}
 
 
