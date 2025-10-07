@@ -1,0 +1,83 @@
+<div class="hundred-words">
+    @if (currentGame === 'SELECTION') {
+        <div class="game-selection">
+            <h1>Choose the Game</h1>
+            <div class="back-container" style="visibility: hidden;">
+                <button class="back-button" aria-hidden="true">
+                    <span class="back-icon">←</span> Back
+                </button>
+            </div>
+            <div class="games-grid">
+                @for (game of games; track game.id) {
+                    <div class="game-card" (click)="selectGame(game.id)">
+                        <div class="game-icon">{{ game.icon }}</div>
+                        <h2>{{ game.name }}</h2>
+                        <p>{{ game.description }}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    } @else if (currentGame === 'MATCH_CARDS') {
+        <div class="match-cards">
+            <div class="back-container">
+                <button class="back-button" (click)="goBack()">
+                    <span class="back-icon">←</span> Back
+                </button>
+            </div>
+            <h1>Match Cards</h1>
+            <div class="board-size-buttons">
+                <button [class.active]="boardSize === '4x4'" (click)="setBoardSize('4x4')">4x4</button>
+                <button [class.active]="boardSize === '4x5'" (click)="setBoardSize('4x5')">4x5</button>
+                <button [class.active]="boardSize === '6x6'" (click)="setBoardSize('6x6')">6x6</button>
+            </div>
+            <div class="progress">
+                <span>Matched Pairs: {{ matchedPairs }}/{{ totalPairs }}</span>
+            </div>
+            <div class="match-cards-grid" [class]="boardSize">
+                @for (card of matchCards; track card.word) {
+                    <div class="match-card" 
+                         [class.matched]="card.isMatched"
+                         [class.selected]="card === selectedCard"
+                         (click)="handleCardClick(card)">
+                        <p>{{ card.word }}</p>
+                    </div>
+                }
+            </div>
+        </div>
+    } @else if (currentGame === 'FLASH_CARDS') {
+        <div class="flash-cards">
+            <div class="back-container">
+                <button class="back-button" (click)="goBack()">
+                    <span class="back-icon">←</span> Back
+                </button>
+            </div>
+            <h1>Flash Cards</h1>
+            <div class="mode-buttons">
+                <button [class.active]="currentMode === 'ENG_TO_UKR'" (click)="setMode('ENG_TO_UKR')">ENG → UKR</button>
+                <button [class.active]="currentMode === 'UKR_TO_ENG'" (click)="setMode('UKR_TO_ENG')">UKR → ENG</button>
+                <button [class.active]="currentMode === 'RANDOM'" (click)="setMode('RANDOM')">RANDOM</button>
+            </div>
+            <div class="progress">
+                <span>Progress: {{ currentIndex }}/{{ allCards.length }}</span>
+            </div>
+            <div class="cards-container">
+                @for (card of visibleCards; track card.engWord) {
+                    <div class="card" 
+                         [@cardAnimation]
+                         [class.flipped]="card.isFlipped"
+                         (click)="flipCard(card)">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <p>{{ card.showEnglish ? card.engWord : card.ukrWord }}</p>
+                            </div>
+                            <div class="card-back">
+                                <p>{{ card.showEnglish ? card.ukrWord : card.engWord }}</p>
+                                <div class="time-bar" [class.animate]="card.isFlipped" [attr.data-key]="card.animationKey"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>

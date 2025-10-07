@@ -5,6 +5,9 @@ export const routes: Routes = [
     path: '', loadComponent: () => import('./pages/ranking/ranking.component').then(m => m.RankingComponent),
   },
   {
+    path: 'hundred-words', loadComponent: () => import('./pages/hundred-words/hundred-words.component').then(m => m.HundredWordsComponent),
+  },
+  {
     path: 'random', loadComponent: () => import('./pages/random/random.component').then(m => m.RandomComponent),
   },
   {

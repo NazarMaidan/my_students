@@ -1,0 +1,20 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 80px 20px 60px 20px; // Top padding for nav button + content spacing
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  
+  @media (max-width: 768px) {
+    padding-top: 70px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}

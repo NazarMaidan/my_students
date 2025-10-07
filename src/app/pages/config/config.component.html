@@ -1,4 +1,9 @@
-<button class="btn" (click)="updateClass(2)">2 class</button>
-<button class="btn" (click)="updateClass(3)">3 class</button>
-<button class="btn" (click)="updateClass(4)">4 class</button>
-<button class="btn" (click)="updateClass(5)">5 class</button>
+<div class="config-container">
+    <h1>Class Configuration</h1>
+    <div class="button-grid">
+        <button class="btn" [class.active]="currentClass === 2" (click)="updateClass(2)">2nd Class</button>
+        <button class="btn" [class.active]="currentClass === 3" (click)="updateClass(3)">3rd Class</button>
+        <button class="btn" [class.active]="currentClass === 4" (click)="updateClass(4)">4th Class</button>
+        <button class="btn" [class.active]="currentClass === 5" (click)="updateClass(5)">5th Class</button>
+    </div>
+</div>

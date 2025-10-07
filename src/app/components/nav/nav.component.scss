@@ -5,20 +5,26 @@
 }
 
 .nav {
-  position: absolute;
-  width: 200px;
+  position: fixed;
+  width: 250px;
   left: -300px;
   top: 0;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.89);
-  transition: all 0.2s;
+  background: rgba(0, 0, 0, 0.95);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 3px 0 10px rgba(0, 0, 0, 0.2);
 
   &-item {
     color: #e0e0e0;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &:hover {
       color: #eab35a;
-      font-size: 18px;
+      background: rgba(255, 255, 255, 0.05);
+      padding-left: 25px;
     }
   }
 
@@ -30,15 +36,21 @@
 .nav-button {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   cursor: pointer;
+  z-index: 1001;
+  padding: 10px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
   span {
     width: 30px;
     height: 3px;
     background: #000;
     margin-top: 5px;
+    transition: all 0.3s ease;
   }
 }

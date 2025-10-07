@@ -10,8 +10,10 @@ import { StudentsStore } from '../../store/students.store';
 })
 export class ConfigComponent {
   studentsStore = inject(StudentsStore);
+  currentClass: number = 2;
 
   public updateClass(classNumber: number): void {
+    this.currentClass = classNumber;
     this.studentsStore.setActiveClass(classNumber)
   }
 }

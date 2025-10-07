@@ -1,73 +1,144 @@
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+  margin: 0 auto;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
+  
+  @media (min-width: 768px) {
+    width: 95%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 85%;
+  }
+  
+  @media (min-width: 1200px) {
+    width: 70%;
+  }
+}
+
 table {
   border-collapse: collapse;
-  width: 60%;
-  margin: 0 auto 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  min-width: 320px;
   background-color: #ffffff;
-  font-size: 20px;
+  font-size: clamp(14px, 2vw, 20px);
 
   .name {
-    width: 50%;
+    width: 35%;
+    min-width: 120px;
+    max-width: 250px;
   }
 
   .name-body {
     display: flex;
     align-items: center;
+    gap: clamp(10px, 2vw, 20px);
 
     .icon {
-      margin-left: 20px;
-      width: 20px;
-      height: 20px;
+      width: clamp(16px, 2vw, 20px);
+      height: clamp(16px, 2vw, 20px);
+      flex-shrink: 0;
     }
   }
 
   .month {
-    width: 100px;
+    width: clamp(80px, 15vw, 100px);
     text-align: center;
-
   }
 
   .total {
-    font-size: 22px;
+    font-size: clamp(16px, 2.2vw, 22px);
     font-weight: 900;
     text-align: center;
+    min-width: 80px;
   }
 
   .blur {
     filter: blur(0.3rem);
   }
+
+  .number {
+    width: clamp(25px, 4vw, 30px);
+    text-align: center;
+  }
 }
 th, td {
-  padding: 14px 20px;
+  padding: clamp(8px, 1.5vw, 14px) clamp(10px, 2vw, 20px);
   text-align: left;
 }
+
 th {
   background-color: #00519f;
   color: white;
   font-weight: bold;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
-tr:nth-child(even) {
-  background-color: #f2f2f2;
+
+tr {
+  transition: all 0.2s ease;
+
+  &:nth-child(even) {
+    background-color: #f8f9fa;
+  }
+
+  &:hover {
+    background-color: #e9ecef;
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 2;
+    position: relative;
+
+    td {
+      font-size: clamp(16px, 2.4vw, 24px);
+      font-weight: 700;
+    }
+  }
 }
-tr:hover {
-  background-color: #e0e0e0;
-  font-size: 24px;
-  font-weight: 700;
-}
+
 td {
   color: #333;
+  vertical-align: middle;
 }
 
 .number {
-  width: 30px;
+  width: clamp(25px, 4vw, 30px);
 }
 
+// Medal colors with subtle gradient
 .icon--0 {
-  fill: #FFD700;
+  fill: url(#gold-gradient);
+  filter: drop-shadow(0 2px 3px rgba(255, 215, 0, 0.3));
 }
 .icon--1 {
-  fill: #C0C0C0;
+  fill: url(#silver-gradient);
+  filter: drop-shadow(0 2px 3px rgba(192, 192, 192, 0.3));
 }
 .icon--2 {
-  fill: #cd7f32;
+  fill: url(#bronze-gradient);
+  filter: drop-shadow(0 2px 3px rgba(205, 127, 50, 0.3));
+}
+
+// Input styling
+input[type="password"] {
+  display: block;
+  width: 200px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 2px solid #00519f;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+
+  &:focus {
+    border-color: #0066cc;
+    box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
+  }
 }
