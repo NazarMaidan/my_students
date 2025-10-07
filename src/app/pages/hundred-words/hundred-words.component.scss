@@ -114,6 +114,12 @@
     }
 }
 
+.game-container {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+}
+
 .flash-cards, .match-cards {
     animation: fadeIn 0.5s ease-out;
 }
