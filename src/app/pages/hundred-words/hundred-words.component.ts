@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FirebaseService } from '../../services/firebase.service';
 import { FlashCardsComponent } from '../../components/flash-cards/flash-cards.component';
 import { MatchCardsComponent } from '../../components/match-cards/match-cards.component';
+import { TestGameComponent } from '../../components/test-game/test-game.component';
 
-type GameType = 'SELECTION' | 'FLASH_CARDS' | 'MATCH_CARDS';
+type GameType = 'SELECTION' | 'FLASH_CARDS' | 'MATCH_CARDS' | 'TEST_GAME';
 
 interface Game {
   id: GameType;
@@ -16,7 +17,7 @@ interface Game {
 @Component({
   selector: 'app-hundred-words',
   standalone: true,
-  imports: [CommonModule, FlashCardsComponent, MatchCardsComponent],
+  imports: [CommonModule, FlashCardsComponent, MatchCardsComponent, TestGameComponent],
   templateUrl: './hundred-words.component.html',
   styleUrls: ['./hundred-words.component.scss']
 })
@@ -36,6 +37,12 @@ export class HundredWordsComponent implements OnInit {
       name: 'Match Cards',
       description: 'Match pairs of English and Ukrainian words',
       icon: '🃏'
+    },
+    {
+      id: 'TEST_GAME',
+      name: 'Test (1 out of 4)',
+      description: 'Practice your vocabulary with multiple choice questions',
+      icon: '✍️'
     }
   ];
 

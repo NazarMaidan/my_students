@@ -34,6 +34,14 @@
                     (gameExit)="exitGame()">
                 </app-match-cards>
             }
+
+            <!-- Test Game -->
+            @if (currentGame === 'TEST_GAME') {
+                <app-test-game
+                    [words]="selectedWords"
+                    (gameExit)="exitGame()">
+                </app-test-game>
+            }
         </div>
     }
 </div>
