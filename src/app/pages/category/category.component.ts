@@ -15,8 +15,8 @@ export class CategoryComponent {
   readonly dialog = inject(MatDialog);
   readonly studentsStore = inject(StudentsStore);
 
-  selectedClass: WritableSignal<number> = signal(this.studentsStore.selectedClass());
-  availableCategories: Set<number> = new Set([...CATEGORY_BY_CLASS[this.selectedClass()]]);
+  selectedClass: WritableSignal<number> = signal(this.studentsStore.selectedClass() || 2);
+  availableCategories: Set<number | null> = new Set([...CATEGORY_BY_CLASS[this.selectedClass()]]);
   categoryListOnePoint: WritableSignal<any> = signal(CATEGORIES.filter((cat: any) => cat.points === 1 && this.availableCategories.has(cat.id)));
   categoryListTwoPoint: WritableSignal<any> = signal(CATEGORIES.filter((cat: any) => cat.points === 2 && this.availableCategories.has(cat.id)));
   questionList: WritableSignal<any> = signal(QUESTIONS);

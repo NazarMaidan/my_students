@@ -13,9 +13,7 @@ export const routes: Routes = [
   {
     path: 'category', loadComponent: () => import('./pages/category/category.component').then(m => m.CategoryComponent)
   },
-  {
-    path: 'config', loadComponent: () => import('./pages/config/config.component').then(m => m.ConfigComponent)
-  },
+
   {
     path: 'achievement', loadComponent: () => import('./pages/achievement/achievement.component').then(m => m.AchievementComponent)
   },

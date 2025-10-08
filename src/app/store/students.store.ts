@@ -6,13 +6,16 @@ import { FirebaseService } from '../services/firebase.service';
 type StudentsState = {
   students: any[];
   isLoading: boolean;
-  filterParams: {selectedClass: number, selectedStudent: any | null}
+  filterParams: {selectedClass: number | null, selectedStudent: any | null}
 }
 
 const initialState: StudentsState = {
   students: [],
   isLoading: false,
-  filterParams: {selectedClass: 4, selectedStudent: null}
+  filterParams: {
+    selectedClass: Number(sessionStorage.getItem('selectedClass')) || null, 
+    selectedStudent: null
+  }
 }
 
 export const StudentsStore = signalStore(
@@ -30,6 +33,7 @@ export const StudentsStore = signalStore(
       firebaseService.addPoint(student.id, { ...student, sepoct: (student?.sepoct || 0) + 1 } )
     },
     setActiveClass(selectedClass: number): void {
+      sessionStorage.setItem('selectedClass', selectedClass.toString());
       patchState(store, (state: any) => ({filterParams: {...state.filterParams, selectedClass}}))
     }
   })),

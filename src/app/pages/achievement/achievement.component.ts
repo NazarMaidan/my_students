@@ -13,5 +13,5 @@ export class AchievementComponent {
   studentsStore = inject(StudentsStore);
 
   selectedClass = signal(this.studentsStore.selectedClass());
-  selectedList: Signal<any> = computed(() => LIST[this.selectedClass()]);
+  selectedList: Signal<any> = computed(() => LIST[this.selectedClass() || 2]);
 }

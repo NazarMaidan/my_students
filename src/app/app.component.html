@@ -1,4 +1,8 @@
-<app-nav></app-nav>
-<main class="main-content">
-    <router-outlet></router-outlet>
-</main>
+@if (studentsStore.filterParams().selectedClass !== null) {
+    <app-nav></app-nav>
+    <main class="main-content">
+        <router-outlet></router-outlet>
+    </main>
+} @else {
+    <app-class-selection></app-class-selection>
+}

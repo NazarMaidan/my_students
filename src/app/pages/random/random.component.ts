@@ -13,7 +13,7 @@ import { StudentsStore } from '../../store/students.store';
 export class RandomComponent {
   studentsStore = inject(StudentsStore);
 
-  selectedClass = signal(this.studentsStore.selectedClass());
+  selectedClass = signal(this.studentsStore.selectedClass() || 2);
   selectedList = computed(() => LIST[this.selectedClass()]);
 
   activeItem:any | null = null;
