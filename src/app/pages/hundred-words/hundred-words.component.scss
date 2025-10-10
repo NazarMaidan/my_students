@@ -1,5 +1,4 @@
 .hundred-words {
-    padding: 15px;
     max-width: 1200px;
     margin: 0 auto;
     position: relative;
@@ -68,11 +67,11 @@
         padding: 20px;
         justify-items: center;
         grid-template-columns: repeat(1, 1fr);
-        
+
         @media (min-width: 640px) {
             grid-template-columns: repeat(2, 1fr);
         }
-        
+
         @media (min-width: 960px) {
             grid-template-columns: repeat(3, 1fr);
         }
@@ -306,14 +305,14 @@
     justify-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    
+
     grid-template-columns: repeat(1, 1fr);
-    
+
     @media (min-width: 640px) {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
+
     @media (min-width: 960px) {
         grid-template-columns: repeat(3, 1fr);
     }

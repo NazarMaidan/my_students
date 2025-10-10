@@ -4,15 +4,14 @@
             <span class="back-icon">←</span> Back
         </button>
     </div>
-
-    <h1>Test (1 out of 4)</h1>
+    <h3>Test (1 out of 4)</h3>
 
     @if (currentQuestion) {
         <div class="question-container">
             <h2>{{ currentQuestion.word }}</h2>
             <div class="options-grid">
                 @for (option of currentQuestion.options; track option) {
-                    <button 
+                    <button
                         class="option-button"
                         [class.correct]="isCorrectAnswer(option)"
                         [class.wrong]="isWrongAnswer(option)"

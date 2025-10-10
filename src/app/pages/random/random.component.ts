@@ -1,14 +1,15 @@
 import { Component, computed, inject, signal } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { LIST } from '../../constants/students.list';
 import { StudentsStore } from '../../store/students.store';
 
 
 @Component({
-  selector:'app-wheel',
-  imports:[],
-  templateUrl:'./random.component.html',
-  standalone:true,
-  styleUrl:'./random.component.scss'
+  selector: 'app-random',
+  imports: [CommonModule],
+  templateUrl: './random.component.html',
+  standalone: true,
+  styleUrl: './random.component.scss'
 })
 export class RandomComponent {
   studentsStore = inject(StudentsStore);

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface MatchCard {
@@ -16,6 +16,11 @@ type BoardSize = '4x4' | '4x5' | '6x6';
   imports: [CommonModule],
   template: `
     <div class="match-cards">
+      <div class="back-container">
+        <button class="back-button" (click)="gameExit.emit()">
+            <span class="back-icon">←</span> Back
+        </button>
+      </div>
       <h1>Match Cards</h1>
       <div class="board-size-buttons">
         <button [class.active]="boardSize === '4x4'" (click)="setBoardSize('4x4')">4x4</button>
@@ -27,7 +32,7 @@ type BoardSize = '4x4' | '4x5' | '6x6';
       </div>
       <div class="match-cards-grid" [class]="boardSize">
         @for (card of matchCards; track card.word) {
-          <div class="match-card" 
+          <div class="match-card"
                [class.matched]="card.isMatched"
                [class.selected]="card === selectedCard"
                (click)="handleCardClick(card)">
@@ -46,6 +51,7 @@ export class MatchCardsComponent {
       this.initializeMatchCards();
     }
   }
+  @Output() gameExit = new EventEmitter<void>();
 
   private _words: [string, string][] = [];
   matchCards: MatchCard[] = [];
@@ -75,10 +81,10 @@ export class MatchCardsComponent {
   initializeMatchCards() {
     this.matchedPairs = 0;
     this.selectedCard = null;
-    
+
     const shuffledWords = this.shuffleArray([...this._words]);
     const selectedWords = shuffledWords.slice(0, this.totalPairs);
-    
+
     const cardPairs: MatchCard[] = [];
     selectedWords.forEach((word: [string, string], index: number) => {
       cardPairs.push({

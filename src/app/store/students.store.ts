@@ -13,7 +13,7 @@ const initialState: StudentsState = {
   students: [],
   isLoading: false,
   filterParams: {
-    selectedClass: Number(sessionStorage.getItem('selectedClass')) || null, 
+    selectedClass: Number(sessionStorage.getItem('selectedClass')) || null,
     selectedStudent: null
   }
 }

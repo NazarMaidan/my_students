@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
 
@@ -19,6 +19,11 @@ type DisplayMode = 'ENG_TO_UKR' | 'UKR_TO_ENG' | 'RANDOM';
   imports: [CommonModule],
   template: `
     <div class="flash-cards">
+      <div class="back-container">
+        <button class="back-button" (click)="gameExit.emit()">
+            <span class="back-icon">←</span> Back
+        </button>
+      </div>
       <h1>Flash Cards</h1>
       <div class="mode-buttons">
         <button [class.active]="currentMode === 'ENG_TO_UKR'" (click)="setMode('ENG_TO_UKR')">ENG → UKR</button>
@@ -30,7 +35,7 @@ type DisplayMode = 'ENG_TO_UKR' | 'UKR_TO_ENG' | 'RANDOM';
       </div>
       <div class="cards-container">
         @for (card of visibleCards; track card.engWord) {
-          <div class="card" 
+          <div class="card"
                [@cardAnimation]
                [class.flipped]="card.isFlipped"
                (click)="flipCard(card)">
@@ -67,12 +72,14 @@ export class FlashCardsComponent {
       this.initializeCards(value);
     }
   }
+  @Output() gameExit = new EventEmitter<void>();
 
   allCards: FlashCard[] = [];
   visibleCards: FlashCard[] = [];
   currentIndex = 0;
   readonly FLIP_DURATION = 3000;
   currentMode: DisplayMode = 'ENG_TO_UKR';
+  private activeTimers = new Map<string, any>();
 
   private shuffleArray<T>(array: T[]): T[] {
     const shuffled = [...array];
@@ -110,14 +117,16 @@ export class FlashCardsComponent {
   }
 
   showNextCards() {
-    this.visibleCards = this.visibleCards.filter(card => !card.isFlipped);
+    const neededCards = 3 - this.visibleCards.filter(card => !card.isFlipped).length;
 
-    while (this.visibleCards.length < 3 && this.currentIndex < this.allCards.length) {
+    for (let i = 0; i < neededCards && this.currentIndex < this.allCards.length; i++) {
       const nextCard = this.allCards[this.currentIndex];
-      nextCard.isVisible = true;
-      nextCard.isFlipped = false;
-      this.visibleCards.push(nextCard);
-      this.currentIndex++;
+      if (nextCard) {
+        nextCard.isVisible = true;
+        nextCard.isFlipped = false;
+        this.visibleCards.push(nextCard);
+        this.currentIndex++;
+      }
     }
 
     if (this.visibleCards.length === 0 && this.currentIndex >= this.allCards.length) {
@@ -127,15 +136,34 @@ export class FlashCardsComponent {
     }
   }
 
+  private getCardKey(card: FlashCard): string {
+    return `${card.engWord}-${card.ukrWord}`;
+  }
+
   flipCard(card: FlashCard) {
-    if (!card.isFlipped) {
-      card.animationKey = Date.now();
-      card.isFlipped = true;
-      
-      setTimeout(() => {
-        card.isVisible = false;
-        this.showNextCards();
-      }, this.FLIP_DURATION);
+    const cardKey = this.getCardKey(card);
+    if (card.isFlipped || this.activeTimers.has(cardKey)) {
+      return;
     }
+
+    card.animationKey = Date.now();
+    card.isFlipped = true;
+
+    const timer = setTimeout(() => {
+      const cardIndex = this.visibleCards.findIndex(c => this.getCardKey(c) === cardKey);
+      if (cardIndex > -1) {
+        this.visibleCards.splice(cardIndex, 1);
+        this.activeTimers.delete(cardKey);
+        this.showNextCards();
+      }
+    }, this.FLIP_DURATION);
+
+    this.activeTimers.set(cardKey, timer);
+  }
+
+  ngOnDestroy() {
+    // Clean up any remaining timers
+    this.activeTimers.forEach(timer => clearTimeout(timer));
+    this.activeTimers.clear();
   }
 }

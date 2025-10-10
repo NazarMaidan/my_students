@@ -1,7 +1,9 @@
-<button class="btn btn-random" (click)="onSelectStudent()">Random</button>
-<button class="btn btn-clear" (click)="onClearList()">Clear</button>
+<div class="actions">
+    <button class="btn btn-random" (click)="onSelectStudent()">Random</button>
+    <button class="btn btn-clear" (click)="onClearList()">Clear</button>
+</div>
 
-<div class="wood-desk second-class"
+<div class="wood-desk"
      [class.fourth-class]="selectedClass() === 4"
      [class.third-class]="selectedClass() === 3"
      [class.second-class]="selectedClass() === 2"
@@ -18,4 +20,3 @@
     }
 
 </div>
-

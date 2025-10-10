@@ -3,16 +3,15 @@
     max-width: 800px;
     margin: 0 auto;
     position: relative;
+    text-align: center;
 
     h1 {
-        text-align: center;
         margin-bottom: 2rem;
         font-size: clamp(1.8rem, 4vw, 2.5rem);
         color: #2c3e50;
     }
 
     h2 {
-        text-align: center;
         font-size: clamp(1.5rem, 3vw, 2rem);
         color: #2c3e50;
         margin-bottom: 2rem;
@@ -54,12 +53,18 @@
 
 .question-container {
     margin-top: 3rem;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
 }
 
 .options-grid {
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 1rem;
 }
 

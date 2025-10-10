@@ -42,6 +42,14 @@
                     (gameExit)="exitGame()">
                 </app-test-game>
             }
+
+            <!-- Write Me Game -->
+            @if (currentGame === 'WRITE_ME') {
+                <app-write-me
+                    [words]="selectedWords"
+                    (gameExit)="exitGame()">
+                </app-write-me>
+            }
         </div>
     }
 </div>

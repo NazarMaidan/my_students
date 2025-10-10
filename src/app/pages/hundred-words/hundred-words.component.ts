@@ -4,8 +4,9 @@ import { FirebaseService } from '../../services/firebase.service';
 import { FlashCardsComponent } from '../../components/flash-cards/flash-cards.component';
 import { MatchCardsComponent } from '../../components/match-cards/match-cards.component';
 import { TestGameComponent } from '../../components/test-game/test-game.component';
+import { WriteMeComponent } from '../../components/write-me/write-me.component';
 
-type GameType = 'SELECTION' | 'FLASH_CARDS' | 'MATCH_CARDS' | 'TEST_GAME';
+type GameType = 'SELECTION' | 'FLASH_CARDS' | 'MATCH_CARDS' | 'TEST_GAME' | 'WRITE_ME';
 
 interface Game {
   id: GameType;
@@ -17,7 +18,13 @@ interface Game {
 @Component({
   selector: 'app-hundred-words',
   standalone: true,
-  imports: [CommonModule, FlashCardsComponent, MatchCardsComponent, TestGameComponent],
+  imports: [
+    CommonModule,
+    FlashCardsComponent,
+    MatchCardsComponent,
+    TestGameComponent,
+    WriteMeComponent
+  ],
   templateUrl: './hundred-words.component.html',
   styleUrls: ['./hundred-words.component.scss']
 })
@@ -43,6 +50,12 @@ export class HundredWordsComponent implements OnInit {
       name: 'Test (1 out of 4)',
       description: 'Practice your vocabulary with multiple choice questions',
       icon: '✍️'
+    },
+    {
+      id: 'WRITE_ME',
+      name: 'Write Me',
+      description: 'Practice spelling by writing the translations',
+      icon: '✏️'
     }
   ];
 

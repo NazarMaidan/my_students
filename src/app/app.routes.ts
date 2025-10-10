@@ -13,14 +13,13 @@ export const routes: Routes = [
   {
     path: 'category', loadComponent: () => import('./pages/category/category.component').then(m => m.CategoryComponent)
   },
-
-  {
-    path: 'achievement', loadComponent: () => import('./pages/achievement/achievement.component').then(m => m.AchievementComponent)
-  },
   {
     path: 'teeth', loadComponent: () => import('./pages/teeth/teeth.component').then(m => m.TeethComponent)
   },
   {
     path: 'first', loadComponent: () => import('./pages/first-class/first-class.component').then(m => m.FirstClassComponent)
+  },
+  {
+    path: 'write-me', loadComponent: () => import('./components/write-me/write-me.component').then(m => m.WriteMeComponent)
   }
 ];
