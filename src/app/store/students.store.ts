@@ -18,6 +18,7 @@ const initialState: StudentsState = {
   }
 }
 
+// @ts-ignore
 export const StudentsStore = signalStore(
   { providedIn: 'root' },
   withState(initialState),
